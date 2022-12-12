@@ -29,8 +29,18 @@ public class UserRegistration {
             if (emailCheck) {
                 System.out.println("Entered valid Email Address");
             } else {
-                System.out.println("Entered Email is invalid Address");
+                System.out.println("Entered Email Address is invalid");
             }
+        }
+
+        System.out.println("Enter your Mobile Number: ");
+        String mobileNumber = sc.next();
+        String mobileNumberPattern="^(91)[ ]{1}[1-9]{1}[0-9]{9}$";
+        boolean mnCheck = Pattern.matches(mobileNumberPattern, mobileNumber);
+        if (mnCheck) {
+            System.out.println("You have entered valid Mobile Number");
+        } else {
+            System.out.println("Entered  Mobile Number is invalid");
         }
     }
 }
