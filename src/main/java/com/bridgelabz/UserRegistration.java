@@ -44,13 +44,13 @@ public class UserRegistration {
         }
 
         System.out.println("Enter your Password: ");
-        String password = sc.next();
-        String passwordPattern="[A-Za-z0-9]{8,}$";
+        String password = sc.nextLine();
+        String passwordPattern=("^[A-z]{1,}[a-zA-Z0-9]{8,}$");
         boolean passwordCheck = Pattern.matches(passwordPattern,password);
         if (passwordCheck) {
             System.out.println("You have entered valid Password");
         } else {
-            System.out.println("Entered invalid Password");
+            System.out.println("Entered Password is invalid ");
         }
     }
 }
