@@ -42,5 +42,15 @@ public class UserRegistration {
         } else {
             System.out.println("Entered  Mobile Number is invalid");
         }
+
+        System.out.println("Enter your Password: ");
+        String password = sc.next();
+        String passwordPattern="[A-Za-z0-9]{8,}$";
+        boolean passwordCheck = Pattern.matches(passwordPattern,password);
+        if (passwordCheck) {
+            System.out.println("You have entered valid Password");
+        } else {
+            System.out.println("Entered invalid Password");
+        }
     }
 }
