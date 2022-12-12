@@ -21,6 +21,16 @@ public class UserRegistration {
             System.out.println(" You have entered valid Last Name");
         } else {
             System.out.println("Entered Last Name is invalid");
+
+            System.out.println("Enter your Email Address: ");
+            String email = sc.next();
+            String emailPattern="^[a-z0-9]{3,}[+.-]?[a-z0-9]{0,}[@]{1,}[a-z0-9]{1,}[.]{1,}([a-z]{0,}[.]{0,})[a-z]{2,}$";
+            boolean emailCheck = Pattern.matches(emailPattern, email);
+            if (emailCheck) {
+                System.out.println("Entered valid Email Address");
+            } else {
+                System.out.println("Entered Email is invalid Address");
+            }
         }
     }
 }
