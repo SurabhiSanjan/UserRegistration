@@ -45,7 +45,7 @@ public class UserRegistration {
 
         System.out.println("Enter your Password: ");
         String password = sc.nextLine();
-        String passwordPattern=("^[A-z]{1,}[a-zA-Z0-9]{8,}$");
+        String passwordPattern=("^[0-9]{1,}[A-z]{1,}[a-zA-Z0-9]{8,}$");
         boolean passwordCheck = Pattern.matches(passwordPattern,password);
         if (passwordCheck) {
             System.out.println("You have entered valid Password");
