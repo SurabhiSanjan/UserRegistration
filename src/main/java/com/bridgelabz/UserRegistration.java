@@ -27,58 +27,76 @@ public class UserRegistration {
         ur.testPassword(password);
     }
         public boolean testFirstName(String firstName) {
-            boolean a = Pattern.matches("^[A-Z][a-z]{2,}$", firstName);
-            if (a) {
+            boolean valid = Pattern.matches("^[A-Z][a-z]{2,}$", firstName);
+            if (valid) {
                 System.out.println("You have entered valid First Name");
             } else {
-                System.out.println("Entered First Name is invalid");
+                try {
+                    throw new InvalidException("Invalid Name");
+                } catch (InvalidException e) {
+                    e.printStackTrace();
+                }
             }
-            return a;
+            return valid;
         }
 
         public boolean testLastName(String lastName) {
-            boolean lastNameChk = Pattern.matches("^[A-Z][a-z]{2,}$", lastName);
-            if (lastNameChk) {
+            boolean valid = Pattern.matches("^[A-Z][a-z]{2,}$", lastName);
+            if (valid) {
                 System.out.println("You have entered valid Last Name");
             } else {
-                System.out.println("Entered Last Name is invalid");
+                try {
+                    throw new InvalidException("Invalid Name");
+                } catch (InvalidException e) {
+                    e.printStackTrace();
+                }
             }
-            return lastNameChk;
+            return valid;
 
         }
         public boolean testEmailAddress(String email) {
-            String emailPattern = "^[a-z0-9]{3,}[+.-]?[a-z0-9]{0,}[@]{1,}[a-z0-9]{1,}[.]{1,}([a-z]{0,}[.]{0,})[a-z]{2,}$";
-            boolean emailChk = Pattern.matches(emailPattern, email);
-            if (emailChk) {
+            String emailPattern = "^[a-z0-9]{3,}[+.-]?[a-z0-9]{0,}[@]{1}[a-z0-9]{1,}[.]{1}([a-z]{0,}[.]{0,})[a-z]{2,}$";
+
+            boolean valid = Pattern.matches(emailPattern, email);
+            if (valid) {
                 System.out.println("Entered valid Email Address");
             } else {
-                System.out.println("Entered Email Address is invalid");
+                try {
+                    throw new InvalidException("Invalid Email");
+                } catch (InvalidException e) {
+                    e.printStackTrace();
+                }
             }
-            return emailChk;
+            return valid;
         }
 
         public boolean testMobileNumber(String mobileNumber) {
             String mobileNumberPattern = "^(91)[ ]{1}[1-9]{1}[0-9]{9}$";
-            boolean mobileChk = Pattern.matches(mobileNumberPattern, mobileNumber);
-            if (mobileChk) {
+            boolean vaild = Pattern.matches(mobileNumberPattern, mobileNumber);
+            if (vaild) {
                 System.out.println("You have entered valid Mobile Number");
             } else {
-                System.out.println("Entered  Mobile Number is invalid");
+                try {
+                    throw new InvalidException("Invalid Mobile Number");
+                } catch (InvalidException e) {
+                    e.printStackTrace();
+                }
             }
-            return mobileChk;
+            return vaild;
         }
 
-        public boolean testPassword(String password) {
+        public Boolean testPassword(String password) {
             String passwordPattern = "^[0-9]{1,}[!@#$%^&]{1,}[A-z]{1,}[a-zA-Z0-9]{5,}$";
-            boolean passwordChk = Pattern.matches(passwordPattern,password);
-            if (passwordChk) {
+            boolean valid = Pattern.matches(passwordPattern, password);
+            if (valid) {
                 System.out.println("You have entered valid Password");
             } else {
-                System.out.println("Entered Password is invalid ");
+                try {
+                    throw new InvalidException("Invalid Password");
+                } catch (InvalidException e) {
+                    e.printStackTrace();
+                }
             }
-            return passwordChk;
-
+            return valid;
         }
-
-
 }
